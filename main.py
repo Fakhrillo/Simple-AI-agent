@@ -18,13 +18,15 @@ client = InferenceClient("meta-llama/Llama-3.2-3B-Instruct")
 
 # print(output.choices[0].message.content)
 
+ask_city = input("Please enter a city name you want to know: ")
+
 prompt = f"""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
 {SYSTEM_PROMPT}
 <|eot_id|><|start_header_id|>user<|end_header_id|>
-What's the current weather in Paris? Provide the update in a **natural way**.
+What's the current weather in {ask_city}? Provide the update in a **natural way**.
 
 Here is the latest weather data:
-{get_weather("Paris")}
+{get_weather(ask_city)}
 
 Avoid structured formats like tables or bullet points. Instead, make it sound natural and short.
 
